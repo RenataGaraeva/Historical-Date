@@ -2,9 +2,9 @@ import React, {useContext, useEffect, useState} from 'react';
 import {gsap} from 'gsap';
 import "./circle.scss";
 
-import {PropsContext} from "../context/context.jsx";
-import mainData, {centerX, centerY, radius} from "../constants/data";
-import {cn, rotatePoints} from "../functions/functions";
+import {PropsContext} from "../../context/context.jsx";
+import mainData, {centerX, centerY, radius} from "../../constants/data";
+import {cn, rotatePoints} from "../../functions/functions";
 
 export default function Circle () {
     return (
@@ -53,7 +53,7 @@ function PointsOnCircle () {
     const handlePointClick = (index) => {
         const constIndex = index
         setActiveDataIndex(constIndex)
-        rotatePoints(pointsRef, currentAnglesRef, textRef, centerX, radius, centerY, mainData);
+        rotatePoints(pointsRef, currentAnglesRef, centerX, radius, centerY, textRef, mainData);
     };
 
     const extraSpace  =  ( centerY, radius) => widthOfBlock - centerY - radius - radius - radius / 2
