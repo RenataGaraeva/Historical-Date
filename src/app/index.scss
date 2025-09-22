@@ -1,0 +1,75 @@
+body {
+  //width: 100vw;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+.maino {
+ height: 100vh ;//500px
+  width: 1440px;
+ // max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+.innerContainer {
+  width: 1280px;
+  margin: 0 auto;
+}
+.circleAndDate {
+  position: relative;
+  width: 100vw;
+  height: 530px;
+}
+
+.titleAndCircle {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+position: absolute;
+  font-family: Arial, sans-serif;
+  font-size: 56px;
+top: 50px;
+  width: 353px;
+  left: 78px;
+  color: rgba(66, 86, 122, 1);
+  font-weight: bold;
+}
+
+/*
+.circle {
+  width: 530px;
+  height: 530px;
+  border: 1px solid black ;
+  border-radius: 9999px;
+}
+
+.circleDot {
+  width: 6px;
+  height: 6px;
+  border: 1px solid black ;
+  border-radius: 9999px;
+}
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  border: 1px solid black;
+}
+
+.point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  transform-origin: 0 0;
+
+*/

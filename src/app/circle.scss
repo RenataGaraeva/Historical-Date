@@ -1,0 +1,58 @@
+@use './index.scss';
+.point-number {
+  pointer-events: none; /* Чтобы текст не перехватывал события мыши */
+  user-select: none;
+}
+
+.point-group {
+  cursor: pointer;
+}
+  .point {
+
+    cursor: pointer;
+
+  }
+.point-active {
+
+}
+.point-number {
+
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.circle {
+  width: 530px;
+  margin: 0 auto;
+  z-index: 2;
+  position: absolute;
+  left: 500px;
+  top: 50px;
+  overflow: visible;
+
+}
+
+.circleTwo {
+  width: 536px;
+  margin: 0 auto;
+}
+
+
+.verticalLine,
+.horisontalLine {
+  border: 1px solid grey;
+  position: absolute;
+}
+/*
+.verticalLine {
+  height: 100%;
+  // transform: translate(50%, 50%);
+
+}
+.horisontalLine {
+  width: 100%;
+  // transform: translate(50%, 50%);
+
+}
+
+ */
