@@ -6,11 +6,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './slider.scss'
 import { gsap } from 'gsap';
-import {animateToNextPeriod, rotatePoints} from "../../functions/functions.js";
-import mainData, {centerX, centerY, radius} from "../../constants/data.js";
-import {PropsContext} from "../../context/context.jsx";
-import Text from '../templateComponents/Text/Text.jsx'
-import Date from '../templateComponents/Date/Date.jsx'
+import {animateToNextPeriod, rotatePoints} from "../../../functions/functions.js";
+import mainData, {centerX, centerY, radius} from "../../../constants/data.js";
+import {PropsContext} from "../../../context/context.jsx";
+import Text from '../../templateComponents/Text/Text.jsx'
+import Date from '../../templateComponents/Date/Date.jsx'
 export function Slider () {
     const {
         setSwiperInstance,
