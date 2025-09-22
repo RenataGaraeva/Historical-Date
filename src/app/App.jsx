@@ -28,6 +28,7 @@ export default function App () {
     const divBlock = useRef(null);
     const textRef = useRef([])
 
+
     return (
         <PropsContext value={{
             swiperInstance,
