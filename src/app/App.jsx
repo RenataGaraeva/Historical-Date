@@ -1,8 +1,10 @@
 import React, {useRef, useState} from "react";
 import "./index.scss";
-import Circle from "../components/Circle.jsx";
+import Circle from "../components/Circle/Circle.jsx";
 import mainData, {title} from "../constants/data.js";
 import {PropsContext} from "../context/context.jsx";
+import {Slider} from "../components/Slider/Slider.jsx";
+import BottomButtons from "../components/BottomButtons/BottomButtons.jsx";
 
 export default function App () {
     const [swiperInstance, setSwiperInstance] = useState(null);
@@ -54,16 +56,21 @@ export default function App () {
             divBlock,
             textRef
         }}>
+            <div>
             <div className='main'>
                 <div className='innerContainer' ref={divBlock}>
                     <div className='titleAndCircle'>
                         <div className='circleAndDate'>
                         </div>
-                       <Circle />
+                        <Circle/>
                     </div>
                 </div>
-
+                <div className="messages-section">
+                    <Slider />
+                </div>
             </div>
-        </PropsContext>
+<BottomButtons />
+        </div>
+</PropsContext>
     )
 }

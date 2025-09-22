@@ -27,3 +27,12 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+.messages-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1440px;
+  height: 135px;
+  align-items: center;
+}
