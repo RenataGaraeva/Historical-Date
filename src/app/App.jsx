@@ -5,6 +5,7 @@ import mainData, {title} from "../constants/data.js";
 import {PropsContext} from "../context/context.jsx";
 import {Slider} from "../components/Slider/Slider.jsx";
 import BottomButtons from "../components/BottomButtons/BottomButtons.jsx";
+import DateCircle from "../components/DateCircle/DateCircle.jsx";
 
 export default function App () {
     const [swiperInstance, setSwiperInstance] = useState(null);
@@ -63,6 +64,7 @@ export default function App () {
                         <div className='circleAndDate'>
                         </div>
                         <Circle/>
+                        <DateCircle />
                     </div>
                 </div>
                 <div className="messages-section">
