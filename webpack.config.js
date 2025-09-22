@@ -61,6 +61,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'), // Каталог для статики
     },
+    historyApiFallback: true, //добавила сама
     open: true, // Автоматически открывать браузер
   },
 
