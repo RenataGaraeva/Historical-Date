@@ -2,7 +2,7 @@ const path = require('path'); // Импортируем модуль "path" дл
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app/app.jsx', // Точка входа для сборки проекта
+  entry: './src/app/main.jsx', // Точка входа для сборки проекта
 
 
   output: {
