@@ -7,7 +7,7 @@ export const cn = (...args)=>
 
 import {gsap} from "gsap";
 
-export const rotatePoints = (pointsRef, currentAnglesRef, textRef, centerX, radius, centerY, mainData) => {
+export const rotatePoints = (pointsRef, currentAnglesRef, centerX, radius, centerY, textRef,  mainData) => {
     const angleStep = (2 * Math.PI) / mainData.length;
     const duration = 1;
 
@@ -32,7 +32,8 @@ export const rotatePoints = (pointsRef, currentAnglesRef, textRef, centerX, radi
 
                 pointElement.setAttribute('cx', newX);
                 pointElement.setAttribute('cy', newY);
-
+                console.log('textRef', textRef)
+                console.log('textRef.current', textRef.current)
                 console.log('indexThis', index)
                 console.log('textRef.current[index]', textRef.current[index])
                 const textElement = textRef.current[index];
@@ -62,4 +63,44 @@ export const rotatePoints = (pointsRef, currentAnglesRef, textRef, centerX, radi
             }
         });
     });
+};
+
+export const animateToNextPeriod = (activeDataIndex, currentDates, animationRef, setCurrentDates,
+                                    setActiveDataIndex,   previousDataIndex,
+                                    setIsNumberAnimationRunning, mainData
+) => {
+    if (activeDataIndex > mainData.length - 1) return;
+
+    const pastIndex = previousDataIndex;
+    const activeIndex = activeDataIndex
+    console.log('dates', mainData[pastIndex].dates)
+    console.log('currentDates', currentDates)
+    console.log('targetDates', mainData[activeIndex].dates)
+    const pastDates = mainData[pastIndex].dates
+    const targetDates = mainData[activeIndex].dates;
+    const [currentStart, currentEnd] = pastDates;
+    const [targetStart, targetEnd] = targetDates;
+
+    if (animationRef.current) {
+        animationRef.current.kill();
+    }
+
+    const animationData = {
+        startDate: currentStart,
+        endDate: currentEnd
+    };
+
+    animationRef.current = gsap.to(animationData, {
+        startDate: targetStart,
+        endDate: targetEnd,
+        duration: 2,
+        ease: "power2.inOut",
+        onUpdate: () => {
+            setCurrentDates([Math.round(animationData.startDate), Math.round(animationData.endDate)]);
+        },
+        onComplete: () => {
+            setIsNumberAnimationRunning('done rolling')
+        }
+    });
+
 };
