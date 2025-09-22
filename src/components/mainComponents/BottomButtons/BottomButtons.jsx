@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import {PropsContext} from "../../context/context.jsx";
-import mainData from "../../constants/data.js";
+import {PropsContext} from "../../../context/context.jsx";
+import mainData from "../../../constants/data.js";
 import './bottomButtons.scss'
 
 export default function BottomButtons () {

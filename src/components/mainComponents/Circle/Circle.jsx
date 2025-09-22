@@ -2,9 +2,9 @@ import React, {useContext, useEffect, useState} from 'react';
 import {gsap} from 'gsap';
 import "./circle.scss";
 
-import {PropsContext} from "../../context/context.jsx";
-import mainData, {centerX, centerY, radius} from "../../constants/data";
-import {cn, rotatePoints} from "../../functions/functions";
+import {PropsContext} from "../../../context/context.jsx";
+import mainData, {centerX, centerY, radius} from "../../../constants/data";
+import {cn, rotatePoints} from "../../../functions/functions";
 
 export default function Circle () {
     return (
