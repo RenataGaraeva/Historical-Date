@@ -7,7 +7,7 @@ module.exports = {
 
   output: {
     filename: 'bundle.js', // Имя выходного файла сборки
-    path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
+    path: path.resolve(__dirname, 'public/dist'), // Путь для выходного файла сборки
     publicPath: '/dist', //тоже сама добавила
   },
 
@@ -60,7 +60,7 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'), // Каталог для статики
+      directory: path.join(__dirname, 'public/dist'), // Каталог для статики
     },
     historyApiFallback: true, //добавила сама
     open: true, // Автоматически открывать браузер
