@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: 'bundle.js', // Имя выходного файла сборки
     path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
+    publicPath: '/.', //тоже сама добавила
   },
 
   module: {
@@ -47,13 +48,20 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
-      }
+      },
+  {
+    test: /\.(png|jpg|jpeg|gif|svg)$/i,
+    type: 'asset/resource',
+    generator: {
+      filename: 'images/[name][ext]'
+    }
+  }
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html', // было'./src/index.html',
     }),
   ],
 
@@ -61,8 +69,10 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'), // Каталог для статики
     },
+    historyApiFallback: true, //добавила сама
     open: true, // Автоматически открывать браузер
   },
+
 
   mode: 'development', // Режим сборки
 };
