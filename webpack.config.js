@@ -52,15 +52,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[ext]',
-            }
-          }
-        ]
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/inline',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       },
       {
         test: /\.tsx?$/,
