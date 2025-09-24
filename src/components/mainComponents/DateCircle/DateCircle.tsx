@@ -1,6 +1,7 @@
 import './dateCircle.scss'
 import {useContext} from "react";
-import {PropsContext} from "../../../context/context.jsx";
+import {PropsContext} from "../../../context/context";
+import * as React from "react";
 
 export default function DateCircle () {
     const {

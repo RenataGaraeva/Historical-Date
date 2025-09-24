@@ -1,17 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react'
-//import SwiperTool from "./swiper.jsx";
+import  {useContext, useEffect} from 'react'
 import {Swiper, SwiperSlide} from "swiper/react";
+import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './slider.scss'
 import { gsap } from 'gsap';
-import {animateToNextPeriod, rotatePoints} from "../../../functions/functions.js";
-import mainData, {centerX, centerY, radius} from "../../../constants/data.js";
-import {PropsContext} from "../../../context/context.jsx";
-import Text from '../../templateComponents/Text/Text.jsx'
-import Date from '../../templateComponents/Date/Date.jsx'
-export function Slider () {
+import {animateToNextPeriod, rotatePoints} from "../../../functions/functions";
+import mainData, {centerX, centerY, radius} from "../../../constants/data";
+import {PropsContext} from "../../../context/context";
+import Text from '../../templateComponents/Text/Text'
+import Date from '../../templateComponents/Date/Date'
+import * as React from "react";
+
+export default function Slider () {
     const {
         setSwiperInstance,
         activeDataIndex,
@@ -77,11 +79,11 @@ export function Slider () {
         }
     };
 
-    const handleSlideChange = (swiper) => {
+    const handleSlideChange = (swiper: SwiperType) => {
         setActiveMessageIndex(swiper.activeIndex);
     };
 
-    const handleSwiper = (swiper) => {
+    const handleSwiper = (swiper: SwiperType) => {
         setSwiperInstance(swiper);
         swiper.slideTo(activeMessageIndex);
     };
@@ -135,8 +137,6 @@ export function Slider () {
                         className="nav-button previous-button"
                     >
                     </button>
-
-
                     <button
                         onClick={handleNextData}
                         disabled={activeDataIndex === mainData.length - 1}
@@ -144,8 +144,6 @@ export function Slider () {
                     >
                     </button>
                 </div>
-
-
             </div>
             <div ref={swiperContainerRef} className="swiper-container">
                 <Swiper
@@ -161,7 +159,6 @@ export function Slider () {
                             <div className="message-item">
                                 <Date date = {message.date} />
                                 <Text text = {message.text} />
-
                             </div>
                         </SwiperSlide>
                     ))}
