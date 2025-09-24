@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {gsap} from 'gsap';
 import "./circle.scss";
-
-import {PropsContext} from "../../../context/context.jsx";
+import * as React from "react";
+import {PropsContext} from "../../../context/context";
 import mainData, {centerX, centerY, radius} from "../../../constants/data";
 import {cn, rotatePoints} from "../../../functions/functions";
 
@@ -50,14 +50,14 @@ function PointsOnCircle () {
         setWidthOfBlock(divBlock.current.getBoundingClientRect().width)
     }, [divBlock]);
 
-    const handlePointClick = (index) => {
+    const handlePointClick = (index: number) => { //вроде number
         const constIndex = index
         setActiveDataIndex(constIndex)
         rotatePoints(pointsRef, currentAnglesRef, centerX, radius, centerY, textRef, mainData);
     };
 
-    const extraSpace  =  ( centerY, radius) => widthOfBlock - centerY - radius - radius - radius / 2
-    const handleMouseEnter = (circleRef, index) => {
+    const extraSpace  =  ( centerY: number, radius: number) => widthOfBlock - centerY - radius - radius - radius / 2
+    const handleMouseEnter = (circleRef: SVGCircleElement, index: number) => {
         gsap.to(circleRef, {
             r: 10,
             duration: 0.3,
@@ -77,7 +77,7 @@ function PointsOnCircle () {
         }
     };
 
-    const handleMouseLeave = (circleRef, index) => {
+    const handleMouseLeave = (circleRef: SVGCircleElement, index: number) => {
         gsap.to(circleRef, {
             r: 5,
             duration: 0.3,

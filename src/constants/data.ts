@@ -1,4 +1,13 @@
-const mainData = [
+export type DataType = {
+    type: string;
+    dates: number[];
+    messages: {
+        date: number;
+        text: string
+    }[]
+}[]
+
+const mainData:DataType = [
     {
         type: "Квантовая физика",
         dates: [1965, 1972],
@@ -135,9 +144,7 @@ const mainData = [
 
 export default mainData;
 
-export    const centerX = 250;
-export const centerY = 265;
-export const radius = 200;
-export const numPoints = mainData.length;
-export let points = []
-export const title = 'Исторические даты'
+export    const centerX: number  = 250;
+export const centerY: number  = 265;
+export const radius: number = 200;
+export const title: string = 'Исторические даты'

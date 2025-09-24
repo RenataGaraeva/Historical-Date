@@ -1,17 +1,19 @@
+import {DateType, NumberAnimationStatus} from "../context/context";
 
-const isDefinedString = (value) =>
+const isDefinedString = (value: string) =>
     typeof value === 'string' && value.length > 0;
-export const cn = (...args)=>
+export const cn = (...args: string[])=>
     args.filter((arg) => isDefinedString(arg)).join(' ');
 
 
 import {gsap} from "gsap";
+import {DataType} from "../constants/data";
 
-export const rotatePoints = (pointsRef, currentAnglesRef, centerX, radius, centerY, textRef,  mainData) => {
+export const rotatePoints = (pointsRef: React.RefObject<SVGCircleElement[]>, currentAnglesRef:  React.RefObject<number[]>, centerX: number, radius: number, centerY: number, textRef: React.RefObject<SVGTextElement[]>,  mainData: DataType) => {
     const angleStep = (2 * Math.PI) / mainData.length;
     const duration = 1;
 
-    pointsRef.current.forEach((pointElement, index) => {
+    pointsRef.current.forEach((pointElement, index: number) => {
         if (!pointElement) return;
 
         const startAngle = currentAnglesRef.current[index];
@@ -30,16 +32,16 @@ export const rotatePoints = (pointsRef, currentAnglesRef, centerX, radius, cente
                 const newY = centerY + radius * Math.sin(currentAngle);
 
 
-                pointElement.setAttribute('cx', newX);
-                pointElement.setAttribute('cy', newY);
+                pointElement.setAttribute('cx', newX.toString());
+                pointElement.setAttribute('cy', newY.toString());
                 console.log('textRef', textRef)
                 console.log('textRef.current', textRef.current)
                 console.log('indexThis', index)
                 console.log('textRef.current[index]', textRef.current[index])
                 const textElement = textRef.current[index];
                 if (textElement) {
-                    textElement.setAttribute('x', newX);
-                    textElement.setAttribute('y', newY);
+                    textElement.setAttribute('x', newX.toString());
+                    textElement.setAttribute('y', newY.toString());
                 }
 
 
@@ -51,23 +53,23 @@ export const rotatePoints = (pointsRef, currentAnglesRef, centerX, radius, cente
 
                 const finalX = centerX + radius * Math.cos(endAngle);
                 const finalY = centerY + radius * Math.sin(endAngle);
-                pointElement.setAttribute('cx', finalX);
-                pointElement.setAttribute('cy', finalY);
+                pointElement.setAttribute('cx', finalX.toString());
+                pointElement.setAttribute('cy', finalY.toString());
 
 
                 const textElement = textRef.current[index];
                 if (textElement) {
-                    textElement.setAttribute('x', finalX);
-                    textElement.setAttribute('y', finalY);
+                    textElement.setAttribute('x', finalX.toString());
+                    textElement.setAttribute('y', finalY.toString());
                 }
             }
         });
     });
 };
 
-export const animateToNextPeriod = (activeDataIndex, currentDates, animationRef, setCurrentDates,
-                                    setActiveDataIndex,   previousDataIndex,
-                                    setIsNumberAnimationRunning, mainData
+export const animateToNextPeriod = (activeDataIndex: number, currentDates: DateType, animationRef: React.RefObject<gsap.core.Tween | null>, setCurrentDates: (dates: DateType) => void,
+                                    setActiveDataIndex: (index: number) => void,   previousDataIndex: number,
+                                    setIsNumberAnimationRunning: React.Dispatch<React.SetStateAction<NumberAnimationStatus>>, mainData: DataType
 ) => {
     if (activeDataIndex > mainData.length - 1) return;
 
