@@ -54,9 +54,6 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/inline',
-        generator: {
-          filename: 'images/[name][ext]'
-        }
       },
       {
         test: /\.tsx?$/,
