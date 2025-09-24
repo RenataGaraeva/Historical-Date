@@ -9,7 +9,7 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .dates {
     z-index: 1;
     position: absolute;
@@ -21,7 +21,7 @@
     text-align: center;
   }
 }
-@media (max-width: 767px)  {
+@media (max-width: 1280px)  {
   .dates {
     font-family: Arial, sans-serif;
     font-size: 56px;
