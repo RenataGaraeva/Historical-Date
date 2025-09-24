@@ -33,7 +33,7 @@ export default function App () {
         const checkWidth = () => {
             if (divRef.current) {
                 const width = divRef.current.offsetWidth;
-                setIsMobile(width < 768);
+                setIsMobile(width < 1280);
             }
         };
 
