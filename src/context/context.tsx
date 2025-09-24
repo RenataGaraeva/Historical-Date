@@ -40,6 +40,9 @@ interface AppContextType {
     setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
     isNumberAnimationRunning: NumberAnimationStatus;
     setIsNumberAnimationRunning: React.Dispatch<React.SetStateAction<NumberAnimationStatus>>;
+
+    divRef: React.RefObject<HTMLDivElement | null>;
+    isMobile: boolean;
 }
 
 export const PropsContext = createContext<AppContextType>({} as AppContextType);

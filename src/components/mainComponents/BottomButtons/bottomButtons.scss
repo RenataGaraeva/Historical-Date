@@ -1,25 +1,27 @@
-.nav-buttonMessages {
-  border: 1px solid white;
-  border-radius: 9999px;
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(56, 119, 238, 1);
-}
+@media (min-width: 768px) {
+  .nav-buttonMessages {
+    border: 1px solid white;
+    border-radius: 9999px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(56, 119, 238, 1);
+  }
 
-.previous-buttonMessages {
-  background-image: url('../../../../public/VectorNextMessage.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: scale(-1, -1);
-  position: absolute;
-  left: 20px;
-}
+  .previous-buttonMessages {
+    background-image: url('../../../../public/VectorNextMessage.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(-1, -1);
+    position: absolute;
+    left: 20px;
+  }
 
-.next-buttonMessages {
-  background-image: url('../../../../public/VectorNextMessage.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  right: 20px;
+  .next-buttonMessages {
+    background-image: url('../../../../public/VectorNextMessage.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 20px;
+  }
 }

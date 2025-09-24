@@ -1,42 +1,9 @@
-.navigation-buttons {
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.messages-swiper {
-  width: 1280px;
-
-
-}
-.message-item {
-  width: 400px;
-}
 .nav-button {
   border: 1px solid black;
   border-radius: 9999px;
-  width: 50px;
-  height: 50px;
   background-color: white;
-
-}
-.counter {
-  font-family: sans-serif;
-  font-size: 14px;
 }
 
-.containerForMessages {
-  width: 1280px;
-}
-.messages-container {
-  width: 120px;
-  height: 88px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  margin-bottom: 56px;
-}
 .previous-button {
   background-image: url('../../../../public/VectorPrevious.svg');
   background-repeat: no-repeat;
@@ -47,4 +14,80 @@
   background-image: url('../../../../public/VectorNext.svg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 767px) {
+
+  .type {
+    font-family: 'PT Sans',sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 4vh;
+    color: rgba(66, 86, 122, 1);
+  }
+  .nav-button {
+   width: 8vw;
+   height: 5vh;
+  }
+
+  .containerForMessages{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+.messages-container {
+ display: flex;
+  flex-direction: column;
+justify-content: space-between;
+  height: 9vh;
+
+}
+  .navigation-buttons {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 17vw;
+  }
+}
+@media (min-width: 768px) {
+
+  .messages-swiper {
+    width: 1280px;
+  }
+
+  .navigation-buttons {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .message-item {
+    width: 400px;
+  }
+
+  .counter {
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+
+  .containerForMessages {
+    width: 1280px;
+  }
+  .messages-container {
+    width: 120px;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+  .nav-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.border {
+  border: 1px solid gray;
+  margin-bottom: 2vh;
 }

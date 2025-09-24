@@ -2,12 +2,13 @@ import './dateCircle.scss'
 import {useContext} from "react";
 import {PropsContext} from "../../../context/context";
 import * as React from "react";
+import {cn} from "../../../functions/functions";
 
 export default function DateCircle () {
     const {
         currentDates,
         endDateRef,
-        startDateRef,
+        startDateRef
 } = useContext(PropsContext);
 
     return (
