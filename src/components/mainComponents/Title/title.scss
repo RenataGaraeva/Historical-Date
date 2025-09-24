@@ -1,10 +1,22 @@
-.title {
-  position: absolute;
-  font-family: Arial, sans-serif;
-  font-size: 56px;
-  top: 50px;
-  width: 353px;
-  left: 78px;
-  color: rgba(66, 86, 122, 1);
-  font-weight: bold;
+@media (min-width: 767px) {
+  .title {
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 56px;
+    top: 50px;
+    width: 353px;
+    left: 78px;
+    color: rgba(66, 86, 122, 1);
+    font-weight: bold;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10vh 0;
+width: 33vw;
+    color: rgba(66, 86, 122, 1);
+  }
 }
