@@ -51,13 +51,11 @@ module.exports = {
           "sass-loader",
         ],
       },
-  {
-    test: /\.(png|jpg|jpeg|gif|svg)$/i,
-    type: 'asset/resource',
-    generator: {
-      filename: 'public/[name][ext]'
-    }
-  },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
