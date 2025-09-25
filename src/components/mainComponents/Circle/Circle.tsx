@@ -50,7 +50,7 @@ function PointsOnCircle () {
         setWidthOfBlock(divBlock.current.getBoundingClientRect().width)
     }, [divBlock]);
 
-    const handlePointClick = (index: number) => { //вроде number
+    const handlePointClick = (index: number) => {
         const constIndex = index
         setActiveDataIndex(constIndex)
         rotatePoints(pointsRef, currentAnglesRef, centerX, radius, centerY, textRef, mainData);

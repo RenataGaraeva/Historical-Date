@@ -17,7 +17,7 @@ interface AppContextType {
     setPreviousDataIndex: React.Dispatch<React.SetStateAction<number>>;
 
 
-    pointsRef: React.RefObject<SVGCircleElement[]>; //RefObject<SVGCircleElement[]> было React.RefObject<HTMLElement[]>
+    pointsRef: React.RefObject<SVGCircleElement[]>;
     swiperContainerRef: React.RefObject<HTMLDivElement | null>;
     divBlock: React.RefObject<HTMLDivElement | null>;
     textRef: React.RefObject<SVGTextElement[]>;
@@ -31,8 +31,8 @@ interface AppContextType {
 
     currentDates: DateType;
     setCurrentDates: React.Dispatch<React.SetStateAction<DateType>>;
-    startDateRef: React.RefObject<HTMLSpanElement>; // было React.RefObject<number | undefined>
-    endDateRef: React.RefObject<HTMLSpanElement>;// было React.RefObject<number | undefined
+    startDateRef: React.RefObject<HTMLSpanElement>;
+    endDateRef: React.RefObject<HTMLSpanElement>;
 
     shouldAnimate: boolean;
     setShouldAnimate: React.Dispatch<React.SetStateAction<boolean>>;
