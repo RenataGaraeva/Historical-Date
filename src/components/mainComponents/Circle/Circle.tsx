@@ -4,7 +4,7 @@ import "./circle.scss";
 import * as React from "react";
 import {PropsContext} from "../../../context/context";
 import mainData, {centerX, centerY, radius} from "../../../constants/data";
-import {cn, rotatePoints} from "../../../functions/functions";
+import {rotatePoints} from "../../../functions/functions";
 
 export default function Circle () {
     return (
@@ -21,11 +21,12 @@ function PointsOnCircle () {
         divBlock,
         activeDataIndex,
         setActiveDataIndex,
-        textRef
+        textRef,
+        setPreviousDataIndex
     } = useContext(PropsContext);
 
     const [points, setPoints] = useState([]);
-    const [widthOfBlock, setWidthOfBlock] = useState(0)
+    const [widthOfBlock, setWidthOfBlock] = useState(0);
 
     useEffect(() => {
         const initialPoints = [];
@@ -42,24 +43,46 @@ function PointsOnCircle () {
 
         setPoints(initialPoints);
         currentAnglesRef.current = initialAngles;
-
     }, []);
 
-
     useEffect(() => {
-        setWidthOfBlock(divBlock.current.getBoundingClientRect().width)
+        setWidthOfBlock(divBlock.current.getBoundingClientRect().width);
     }, [divBlock]);
 
+    useEffect(() => {
+        points.forEach((_, index) => {
+            const circleRef = pointsRef.current[index];
+            const textRefElement = textRef.current[index];
+
+            if (circleRef) {
+                const isActive = index === activeDataIndex;
+
+                gsap.set(circleRef, {
+                    r: isActive ? 10 : 5,
+                    fill: isActive ? 'white' : 'black',
+                    stroke: isActive ? 'black' : 'none',
+                    strokeWidth: isActive ? 1 : 0
+                });
+            }
+
+            if (textRefElement) {
+                gsap.set(textRefElement, {
+                    opacity: index === activeDataIndex ? 1 : 0
+                });
+            }
+        });
+    }, [activeDataIndex, points]);
+
     const handlePointClick = (index: number) => {
-        const constIndex = index
-        setActiveDataIndex(constIndex)
+        setPreviousDataIndex(activeDataIndex);
+        setActiveDataIndex(index);
         rotatePoints(pointsRef, currentAnglesRef, centerX, radius, centerY, textRef, mainData);
     };
 
-    const extraSpace  =  ( centerY: number, radius: number) => widthOfBlock - centerY - radius - radius
+    const extraSpace = (centerY: number, radius: number) => widthOfBlock - centerY - radius - radius;
 
     const handleMouseEnter = (circleRef: SVGCircleElement, index: number) => {
-       if (activeDataIndex === index ) return
+        if (activeDataIndex === index) return;
 
         gsap.to(circleRef, {
             r: 10,
@@ -81,8 +104,8 @@ function PointsOnCircle () {
     };
 
     const handleMouseLeave = (circleRef: SVGCircleElement, index: number) => {
+        if (activeDataIndex === index) return;
 
-        if (activeDataIndex === index ) return
         gsap.to(circleRef, {
             r: 5,
             duration: 0.3,
@@ -91,6 +114,7 @@ function PointsOnCircle () {
             stroke: "none",
             strokeWidth: 0
         });
+
         if (textRef.current[index]) {
             gsap.to(textRef.current[index], {
                 opacity: 0,
@@ -102,7 +126,6 @@ function PointsOnCircle () {
 
     return (
         <div>
-
             <svg width="530" height="530" className='circle'>
                 <circle
                     cx={centerX}
@@ -133,43 +156,49 @@ function PointsOnCircle () {
                     className='horisontalLine'
                 />
 
-                {points.map((point, index) => (
-                    <g key={index}>
-                        <circle
-                            onClick={() => handlePointClick(index)}
-                            cx={point.x}
-                            cy={point.y}
-                            r={index === activeDataIndex ? '10' : '5'}
-                            fill={index === activeDataIndex? 'white' : 'black'}
-                            ref={el => {
-                                if (el) {
-                                    pointsRef.current[index] = el;
-                                }
-                            }}
-                            onMouseEnter={() => handleMouseEnter(pointsRef.current[index], index)}
-                            onMouseLeave={() => handleMouseLeave(pointsRef.current[index], index)}
-                        />
+                {points.map((point, index) => {
+                    const isActive = index === activeDataIndex;
 
-                        <text
-                            x={point.x}
-                            y={point.y}
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            fontSize="8"
-                            fill="black"
-                            opacity={index === activeDataIndex ? '100' : '0'}
-                            ref={el => {
-                                if (el) {
-                                    textRef.current[index] = el;
-                                }
-                            }}
-                            className="point-number"
-                            style={{pointerEvents: 'none'}}
-                        >
-                            {index + 1}
-                        </text>
-                    </g>
-                ))}
+                    return (
+                        <g key={index}>
+                            <circle
+                                onClick={() => handlePointClick(index)}
+                                cx={point.x}
+                                cy={point.y}
+                                r={isActive ? '10' : '5'}
+                                fill={isActive ? 'white' : 'black'}
+                                stroke={isActive ? 'black' : 'none'}
+                                strokeWidth={isActive ? '1' : '0'}
+                                ref={el => {
+                                    if (el) {
+                                        pointsRef.current[index] = el;
+                                    }
+                                }}
+                                onMouseEnter={() => handleMouseEnter(pointsRef.current[index], index)}
+                                onMouseLeave={() => handleMouseLeave(pointsRef.current[index], index)}
+                            />
+
+                            <text
+                                x={point.x}
+                                y={point.y}
+                                textAnchor="middle"
+                                dominantBaseline="middle"
+                                fontSize="8"
+                                fill="black"
+                                opacity={isActive ? 1 : 0}
+                                ref={el => {
+                                    if (el) {
+                                        textRef.current[index] = el;
+                                    }
+                                }}
+                                className="point-number"
+                                style={{pointerEvents: 'none'}}
+                            >
+                                {index + 1}
+                            </text>
+                        </g>
+                    );
+                })}
             </svg>
         </div>
     );
