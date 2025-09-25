@@ -22,7 +22,7 @@ export default function App () {
     const currentAnglesRef = useRef<number[]>([]);
     const startDateRef = useRef<HTMLSpanElement>(null);
     const endDateRef = useRef<HTMLSpanElement>(null);
-    const animationRef = useRef<gsap.core.Tween | null>(null);//useRef<number | null>(null);
+    const animationRef = useRef<gsap.core.Tween | null>(null);
     const swiperContainerRef = useRef<HTMLDivElement | null>(null);
     const divBlock = useRef<HTMLDivElement | null>(null);
     const textRef = useRef<SVGTextElement[]>([]);
