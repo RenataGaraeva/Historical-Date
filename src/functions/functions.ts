@@ -90,7 +90,7 @@ export const animateToNextPeriod = (activeDataIndex: number, currentDates: DateT
     animationRef.current = gsap.to(animationData, {
         startDate: targetStart,
         endDate: targetEnd,
-        duration: 2,
+        duration: 1,
         ease: "power2.inOut",
         onUpdate: () => {
             setCurrentDates([Math.round(animationData.startDate), Math.round(animationData.endDate)]);
