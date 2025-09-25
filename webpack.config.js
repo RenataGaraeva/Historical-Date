@@ -1,23 +1,23 @@
-const path = require('path'); // Импортируем модуль "path" для работы с путями файлов
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app/main.tsx', // Точка входа для сборки проекта
+  entry: './src/app/main.tsx',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx']
   },
 
   output: {
-    filename: 'bundle.js', // Имя выходного файла сборки
-    path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/.',
   },
 
   module: {
     rules: [
       {
-        test: /\.css$/, // Регулярное выражение для обработки файлов с расширением .css
-        use: ['style-loader', 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.jsx?$/,
@@ -43,11 +43,11 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
+
           "style-loader",
-          // Translates CSS into CommonJS
+
           "css-loader",
-          // Compiles Sass to CSS
+
           "sass-loader",
         ],
       },
@@ -68,7 +68,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // было'./src/index.html',
+      template: './index.html',
     }),
   ],
 
@@ -79,14 +79,14 @@ module.exports = {
     ],
 
     static: {
-      directory: path.join(__dirname, 'dist'), // Каталог для статики
+      directory: path.join(__dirname, 'dist'),
     },
-    port: 8089,
+    port: 8080,
     hot: true,
-    open: true, // Автоматически открывать браузер
+    open: true,
     liveReload: true,
   },
 
 
-  mode: 'development', // Режим сборки
+  mode: 'development',
 };
