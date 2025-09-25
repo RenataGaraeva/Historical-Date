@@ -56,7 +56,8 @@ function PointsOnCircle () {
         rotatePoints(pointsRef, currentAnglesRef, centerX, radius, centerY, textRef, mainData);
     };
 
-    const extraSpace  =  ( centerY: number, radius: number) => widthOfBlock - centerY - radius - radius - radius / 2
+    const extraSpace  =  ( centerY: number, radius: number) => widthOfBlock - centerY - radius - radius
+
     const handleMouseEnter = (circleRef: SVGCircleElement, index: number) => {
        if (activeDataIndex === index ) return
 
@@ -98,7 +99,7 @@ function PointsOnCircle () {
             });
         }
     };
-    console.log('activeDataIndex ', activeDataIndex )
+
     return (
         <div>
 
