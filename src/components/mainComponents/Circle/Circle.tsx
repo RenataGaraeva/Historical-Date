@@ -58,6 +58,8 @@ function PointsOnCircle () {
 
     const extraSpace  =  ( centerY: number, radius: number) => widthOfBlock - centerY - radius - radius - radius / 2
     const handleMouseEnter = (circleRef: SVGCircleElement, index: number) => {
+       if (activeDataIndex === index ) return
+
         gsap.to(circleRef, {
             r: 10,
             duration: 0.3,
@@ -78,6 +80,8 @@ function PointsOnCircle () {
     };
 
     const handleMouseLeave = (circleRef: SVGCircleElement, index: number) => {
+
+        if (activeDataIndex === index ) return
         gsap.to(circleRef, {
             r: 5,
             duration: 0.3,
@@ -134,8 +138,8 @@ function PointsOnCircle () {
                             onClick={() => handlePointClick(index)}
                             cx={point.x}
                             cy={point.y}
-                            r={index === activeDataIndex - 1 ? '10' : '5'}
-                            fill={index === activeDataIndex - 1 ? 'white' : 'black'}
+                            r={index === activeDataIndex ? '10' : '5'}
+                            fill={index === activeDataIndex? 'white' : 'black'}
                             ref={el => {
                                 if (el) {
                                     pointsRef.current[index] = el;
@@ -143,7 +147,6 @@ function PointsOnCircle () {
                             }}
                             onMouseEnter={() => handleMouseEnter(pointsRef.current[index], index)}
                             onMouseLeave={() => handleMouseLeave(pointsRef.current[index], index)}
-                            className={cn('point', `point-${index}`, index === activeDataIndex ? 'point-active' : '')}
                         />
 
                         <text
@@ -153,7 +156,7 @@ function PointsOnCircle () {
                             dominantBaseline="middle"
                             fontSize="8"
                             fill="black"
-                            opacity="0"
+                            opacity={index === activeDataIndex ? '100' : '0'}
                             ref={el => {
                                 if (el) {
                                     textRef.current[index] = el;
