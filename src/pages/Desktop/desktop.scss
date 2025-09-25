@@ -5,11 +5,13 @@
   position: relative;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
+  overflow: hidden; /* Обрезает всё, что выходит за пределы */
 }
 
 .innerContainer {
   width: 1280px;
   margin: 0 auto;
+
 }
 .circleAndDate {
   position: relative;

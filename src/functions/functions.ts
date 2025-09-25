@@ -34,10 +34,7 @@ export const rotatePoints = (pointsRef: React.RefObject<SVGCircleElement[]>, cur
 
                 pointElement.setAttribute('cx', newX.toString());
                 pointElement.setAttribute('cy', newY.toString());
-                console.log('textRef', textRef)
-                console.log('textRef.current', textRef.current)
-                console.log('indexThis', index)
-                console.log('textRef.current[index]', textRef.current[index])
+
                 const textElement = textRef.current[index];
                 if (textElement) {
                     textElement.setAttribute('x', newX.toString());
@@ -75,9 +72,7 @@ export const animateToNextPeriod = (activeDataIndex: number, currentDates: DateT
 
     const pastIndex = previousDataIndex;
     const activeIndex = activeDataIndex
-    console.log('dates', mainData[pastIndex].dates)
-    console.log('currentDates', currentDates)
-    console.log('targetDates', mainData[activeIndex].dates)
+
     const pastDates = mainData[pastIndex].dates
     const targetDates = mainData[activeIndex].dates;
     const [currentStart, currentEnd] = pastDates;
