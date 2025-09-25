@@ -81,7 +81,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'), // Каталог для статики
     },
-    port: 8088,
+    port: 8089,
     hot: true,
     open: true, // Автоматически открывать браузер
     liveReload: true,
