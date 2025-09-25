@@ -12,6 +12,7 @@ import {PropsContext} from "../../../context/context";
 import Text from '../../templateComponents/Text/Text'
 import Date from '../../templateComponents/Date/Date'
 import * as React from "react";
+import MobileBlock from "./mobileBlock";
 
 export default function Slider () {
     const {
@@ -32,7 +33,8 @@ export default function Slider () {
         setIsVisible,
         isNumberAnimationRunning,
         setIsNumberAnimationRunning,
-        textRef
+        textRef,
+        isMobile
             } = useContext(PropsContext);
 
 
@@ -146,6 +148,7 @@ export default function Slider () {
                 </div>
             </div>
             <div ref={swiperContainerRef} className="swiper-container">
+                {isMobile  ? <MobileBlock  type = {mainData[activeDataIndex].type} /> : <></>}
                 <Swiper
                     spaceBetween={20}
                     slidesPerView={2}
@@ -154,13 +157,17 @@ export default function Slider () {
                     className="messages-swiper"
                     key={activeDataIndex}
                 >
+
                     {currentMessages.map((message, index) => (
+                       <>
+
                         <SwiperSlide key={index}>
                             <div className="message-item">
                                 <Date date = {message.date} />
                                 <Text text = {message.text} />
                             </div>
                         </SwiperSlide>
+                        </>
                     ))}
                 </Swiper>
             </div>

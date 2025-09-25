@@ -1,38 +1,8 @@
 body {
-  color: black;
   margin: 0;
   padding: 0;
 }
 
-.main {
-  height: 100vh;
-  width: 1440px;
-  margin: 0 auto;
-  position: relative;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
-}
-
-.innerContainer {
-  width: 1280px;
-  margin: 0 auto;
-}
-.circleAndDate {
-  position: relative;
+.containerForDesign {
   width: 100vw;
-  height: 530px;
-}
-
-.titleAndCircle {
-  display: flex;
-  flex-direction: row;
-}
-
-.messages-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 1440px;
-  height: 135px;
-  align-items: center;
 }
