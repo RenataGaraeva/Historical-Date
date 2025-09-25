@@ -4,7 +4,7 @@
 
 **О проекте**
 
-(Деплой)[https://films-two-wine.vercel.app/]
+Деплой: https://films-two-wine.vercel.app/
 
 ✨ **Основной функционал и что я сделала**
 
